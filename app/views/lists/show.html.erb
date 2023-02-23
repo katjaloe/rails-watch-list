@@ -1,0 +1,19 @@
+
+
+<p><strong>Details about <%= @list.name %></strong></p>
+
+<ul class="list-group">
+  <% @list.bookmarks.each do |review| %>
+  <p><strong>Comment </strong><%= review.comment  %></p>
+    <li class="list-group-item"><%= review.comment %></li>
+  <% end %>
+</ul>
+<br>
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.select :movie_id, Movie.order(:title).map { |movie| [movie.title, movie.id] } %>
+  <%= f.submit "Submit List", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "See all categorys", lists_path %>

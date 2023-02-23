@@ -1,0 +1,7 @@
+
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.select :movie_id, Movie.order(:title).map { |movie| [movie.title, movie.id] } %>
+  <%= f.submit "Submit List", class: "btn btn-primary" %>
+<% end %>
