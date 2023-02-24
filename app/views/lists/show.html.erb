@@ -1,8 +1,8 @@
 <div class="container">
 <p><strong>Details about <%= @list.name %></strong></p>
 <%# <%= cl_image_tag("h176w68tsfty5rse4u8e",
-      width: 400, height: 300, crop: :fill) %> %>
-
+      width: 400, height: 300, crop: :fill) %>
+<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
  <% @list.movies.each do |movie| %>
     <div class="card" style="width: 18rem;">
       <img src=<%=  movie.poster_url  %>  class="card-img-top" alt="...">
