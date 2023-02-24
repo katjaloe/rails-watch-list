@@ -1,19 +1,21 @@
-
-
+<div class="container">
 <p><strong>Details about <%= @list.name %></strong></p>
 
-<ul class="list-group">
-  <% @list.bookmarks.each do |review| %>
-  <p><strong>Comment </strong><%= review.comment  %></p>
-    <li class="list-group-item"><%= review.comment %></li>
+ <% @list.movies.each do |movie| %>
+    <div class="card" style="width: 18rem;">
+      <img src=<%=  movie.poster_url  %>  class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= movie.title %></h5>
+        <p class="card-text"><%= movie.overview %></p>
+        <% movie.bookmarks.each do |review| %>
+          <p class="card-text"><%= review.comment %></p>
+      <% end %>
+    </div>
+  </div>
   <% end %>
-</ul>
 <br>
 
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
-  <%= f.select :movie_id, Movie.order(:title).map { |movie| [movie.title, movie.id] } %>
-  <%= f.submit "Submit List", class: "btn btn-primary" %>
-<% end %>
-
 <%= link_to "See all categorys", lists_path %>
+<br>
+<%= link_to "Add a movie to the list", new_list_bookmark_path(@list) %>
+</div>

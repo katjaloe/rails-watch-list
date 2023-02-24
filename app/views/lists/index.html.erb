@@ -2,7 +2,9 @@
 
 <% @lists.each do |list| %>
 <ul>
-<li><%=link_to list.name, list_path(list.id) %></li>
+<li><%=link_to list.name, list_path(list.id) %>
+</li>
 </ul>
 <% end %>
 
+<%= link_to "Add a new category", new_list_path %>

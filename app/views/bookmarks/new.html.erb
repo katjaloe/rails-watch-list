@@ -1,7 +1,15 @@
 
-
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
-  <%= f.select :movie_id, Movie.order(:title).map { |movie| [movie.title, movie.id] } %>
-  <%= f.submit "Submit List", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <div class="mb-3">
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.label "Choose a movie!" %>
+  </div>
+  <div class="mb-3">
+    <%= f.select :movie_id, Movie.order(:title).map { |movie| [movie.title, movie.id] }  %>
+  </div>
+  <div class="mb-3">
+    <%= f.input :comment %>
+    <%= f.submit "Add a new movie!", class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+</div>
