@@ -1,9 +1,9 @@
 <div class="container">
 <p><strong>Details about <%= @list.name %></strong></p>
-<%# <%= cl_image_tag("h176w68tsfty5rse4u8e",
-      width: 400, height: 300, crop: :fill) %>
 <% if @list.photo.attached? %>
-<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <img src="https://res.cloudinary.com/dpki23ark/image/upload/v1677238277/jcmox18owkhxhbitsndf.jpg" alt="photo">
 <% end %>
  <% @list.movies.each do |movie| %>
     <div class="card" style="width: 18rem;">
