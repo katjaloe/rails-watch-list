@@ -73,3 +73,5 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem 'erb-formatter'
 gem "dotenv-rails", groups: [:development, :test]
+gem "cloudinary"
+
