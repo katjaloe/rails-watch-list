@@ -1,26 +1,30 @@
-<div class="container">
-<p><strong>Details about <%= @list.name %></strong></p>
-<% if @list.photo.attached? %>
 
-  <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
-<%# <% else %>
-  <%# <img src="https://res.cloudinary.com/dpki23ark/image/upload/v1677238277/jcmox18owkhxhbitsndf.jpg" alt="photo">  %>
-<% end %>
- <% @list.movies.each do |movie| %>
-    <div class="card" style="width: 18rem;">
-      <img src=<%=  movie.poster_url  %>  class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><%= movie.title %></h5>
-        <p class="card-text"><%= movie.overview %></p>
+<%= render "shared/banner-bookmarks" %>
+<div class="container">
+  <%# <p><strong>Details about
+      <%= @list.name %></strong></p>
+  <%# <% if @list.photo.attached? %>
+
+    <%# <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+
+  <%# <% end %>
+  <div class="cards">
+  <% @list.movies.each do |movie| %>
+    <div class="card">
+      <img src=<%=  movie.poster_url  %> class="card__image" alt="...">
+      <div class="card-card_content">
+        <h5 class="card_title"><%= movie.title %></h5>
+        <p class="card_text"><%= movie.overview %></p>
         <% movie.bookmarks.each do |review| %>
           <p class="card-text"><%= review.comment %></p>
-      <% end %>
+        <% end %>
+      </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
-<br>
+  <br>
 
-<%= link_to "See all categorys", lists_path %>
-<br>
-<%= link_to "Add a movie to the list", new_list_bookmark_path(@list) %>
+  <%= link_to "See all categorys", lists_path %>
+  <br>
+  <%= link_to "Add a movie to the list", new_list_bookmark_path(@list) %>
 </div>

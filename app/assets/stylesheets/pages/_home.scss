@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+
+.btn-primary {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #C060A1;
+  transition: background 0.3s ease;
+}
+
+.btn-secondary {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #F0CAA3;
+  transition: background 0.3s ease;
+}
+
+body {
+  background-color: rgba(240, 202, 163,.2);
+}

@@ -1,10 +1,37 @@
-<h1>Lists</h1>
+<%= render "shared/banner" %>
 
-<% @lists.each do |list| %>
-<ul>
+<%# <% @lists.each do |list| %>
+<%# <ul>
 <li><%=link_to list.name, list_path(list.id) %>
-</li>
-</ul>
-<% end %>
+  <%# </li> %>
+  <%# </ul> %>
+  <%# <% end %>
 
-<%= link_to "Add a new category", new_list_path %>
+  <%# <% else %>
+  <%# <img src="https://res.cloudinary.com/dpki23ark/image/upload/v1677238277/jcmox18owkhxhbitsndf.jpg" alt="photo"> %>
+  <div class="cards">
+  <% @lists.each do |list| %>
+
+    <div class="blog-card" >
+      <% if list.photo.attached? %>
+        <%= cl_image_tag list.photo.key, class: "blog-img"%>
+      <% else %>
+        <img
+          src="https://res.cloudinary.com/dpki23ark/image/upload/v1677253999/development/v0rrbes4yj3rmqiif3aaotik3sg8.jpg"
+          >
+      <% end %>
+        <h2><%= link_to list.name, list_path(list.id), class: "text-overlay" %></h2>
+    </div>
+
+  <% end %>
+  </div>
+<%#
+<div class="blog-card">
+    <img class="blog-img" src="https://user-images.githubusercontent.com/16360374/37567282-e1932872-2a81-11e8-807b-efc5a997f2f1.jpg" />
+    <div class="text-overlay">
+      <h2>Essential Atom Packages</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales posuere felis non efficitur. Mauris mollis elit urna, id tempus... &nbsp;&nbsp;<a href="#" class="read-more">Read More</a></p>
+    </div>
+  </div>
+  <div class="credit">Created by <a class="creator-link" href="https://brettstevenson.io">Brett Stevenson</a></div>
+</section> %>
